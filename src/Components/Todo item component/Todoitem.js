@@ -24,7 +24,7 @@ const Todoitem = ({todo:{id,description,date,isCompleted,importance}}) => {
     
 
     const getBatteryColor =()=>{
-       return  importance===""? "gray":importance==="Never"? "green":importance==="less"? "tomato":"red"
+       return  importance===""? "gray":importance==="low"? "green":importance==="medium"? "tomato":"red"
     }
     const getBatteryChape =()=>{
        return importance===""? faBatteryEmpty:importance==="Never"? faBatteryThreeQuarters:importance==="less"? faBatteryQuarter:faBatteryFull
@@ -59,9 +59,9 @@ const Todoitem = ({todo:{id,description,date,isCompleted,importance}}) => {
          <div classname="form-group">
              <select className="form-control" name="importance" id="exampleFormControlSelect1" onChange={handleChange}>
                  <option>{newValue.importance}</option>
-                 <option>Huge</option>
-                 <option>less</option>
-                 <option>Never</option>
+                 <option>higher</option>
+                 <option>medium</option>
+                 <option>low</option>
              </select>
          </div>
 

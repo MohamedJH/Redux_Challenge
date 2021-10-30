@@ -1,5 +1,5 @@
 import {TODO_ADDED,TODO_REMOVED,TODO_COMPLETED, TODO_SAVED, TODO_DONE_FILTRED,TODO_NOTDONE_FILTRED, TODOS_RESET} from '../constants'
-import { addAction,completedAction,saveAction} from '../actions'
+
 
 
 
@@ -11,7 +11,7 @@ const todos=[
             description:"tache 1",
             date :"2020-12-1",
             isCompleted:false,
-            importance:"Huge"
+            importance:""
         },
         {
             id:2,
@@ -32,13 +32,13 @@ const todos=[
 export const mgntTodosReducer = (state=todos,action)=>{
     switch(action.type){
         case TODO_ADDED:
-        return [...state,{
+        return [{
             id:state.length+1,
             description:action.payload,
             date:new Date().getFullYear()+"-"+ new Date().getMonth()+"-"+ new Date().getDate(),
             isCompleted:false,
             importance:""
-        }];
+        },...state];
         case TODO_REMOVED:
             return state.filter((el,i)=>el.id!==action.payload);
         case TODO_COMPLETED:
